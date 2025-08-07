@@ -1,2 +1,16 @@
-# DataArt_Ramu
-Data Art Javascript School, adding my assignments here
+﻿Stage-1 Description
+
+#This project implements a basic timeline interface as part of an assignment. The current version includes:
+
+1)A header with a placeholder logo and theme toggle.
+
+2)A navigation section reserved for future filters or placeholders.
+
+3)A timeline section (#timeline) with event markers for 1977, 1981, 1991, and 2007, each within an <article> tag.
+
+4)An empty modal div (#modal) for future pop-ups.
+
+5)Semantic HTML tags (<main>, <article>, <figure>) to structure the content, with <figure> tags added as placeholders for images or media.
+
+
+Future stages will involve adding CSS for styling and JavaScript for interactivity, including filters, pop-ups, and dynamic event loading.
