@@ -145,7 +145,7 @@ figure {
   position: relative;
   box-shadow: 0 7px 8px rgb(244, 184, 3);
   overflow-y: auto;
-  max-height: 60vh;
+  max-height: 80vh;
 }
 
 .close {
