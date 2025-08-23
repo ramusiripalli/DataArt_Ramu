@@ -1,0 +1,275 @@
+/* ===========================
+   RESET + BASE
+   =========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Utility for screen-reader-only content (e.g., extra labels) */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ===========================
+   COLOR TOKENS (WCAG-friendly)
+   =========================== */
+:root {
+  --bg: #ffffff;
+  --text: #1f2937;            /* dark gray for strong contrast */
+  --brand: #0b66c3;           /* darker blue for AA contrast on white */
+  --header-bg: #c2410c;       /* darkened from #f46303 for AA with white text */
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.12);
+  --modal-backdrop: rgba(0,0,0,0.55);
+  --focus: #1d4ed8;           /* accessible focus ring */
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 1rem;
+  line-height: 1.6;
+}
+
+/* Simple dark theme (AA contrast on dark background) */
+body.dark-theme {
+  --bg: #0f1214;
+  --text: #e5e7eb;
+  --brand: #60a5fa;           /* light blue reads well on dark bg */
+  --header-bg: #92400e;
+  --card-bg: #15191c;
+  --card-shadow: rgba(0, 0, 0, 0.6);
+  --modal-backdrop: rgba(0,0,0,0.65);
+  --focus: #93c5fd;
+}
+
+/* ===========================
+   GLOBAL FOCUS VISIBILITY
+   =========================== */
+:where(a, button, [role="button"], [tabindex]):focus { outline: none; }
+:where(a, button, [role="button"], [tabindex]):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===========================
+   HEADER
+   =========================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--header-bg);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+#h2TimeLine {
+  margin: 0 9px;
+}
+
+.theme-toggle {
+  background-color: #444;     /* #444 on white has ~7:1 contrast */
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===========================
+   TIMELINE
+   =========================== */
+#TimelineStyle {
+  display: flex;
+  justify-content: center;
+}
+
+#timeline {
+  position: relative;
+  margin-left: 2rem;
+  padding-left: 2rem;
+  border-left: 4px solid var(--brand);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Timeline Year Dot (decorative circle – year text remains visible) */
+.timeline-year {
+  position: absolute;
+  left: -3rem;
+  top: 1rem;
+  background-color: var(--brand);
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  z-index: 1;
+  box-shadow: 0 0 0 4px #ffffff;
+  width: 2rem; height: 2rem;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Each event wrapper */
+.timeline-event {
+  position: relative;
+}
+
+/* Event Card */
+.timeline-card {
+  background: var(--card-bg);
+  padding: 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px var(--card-shadow);
+  max-width: 600px;
+  transition: transform 0.2s ease;
+}
+
+.timeline-card:hover {
+  transform: scale(1.02);
+}
+
+.timeline-card h3 {
+  color: var(--brand);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.timeline-card p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* If you render a button for “Learn More”, give it accessible styles */
+.marker-action {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--brand);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid var(--brand);
+  padding: 0 0 2px;
+  cursor: pointer;
+}
+
+.marker-action:hover,
+.marker-action:focus-visible {
+  text-decoration: underline;
+}
+
+/* If you still use an anchor for Learn More, keep it readable */
+.timeline-card a {
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 1px solid var(--brand);
+  padding-bottom: 0.1rem;
+}
+
+.timeline-card a:hover {
+  text-decoration: underline;
+}
+
+/* Images */
+figure {
+  margin: 0.5rem 0;
+}
+
+.timeline-card img {
+  max-width: 20%;
+  height: auto;
+  border-radius: 25px;
+  display: block;
+  margin: 4px;
+}
+
+/* ===========================
+   MODAL (Accessible hooks)
+   =========================== */
+/*
+  The modal element should toggle:
+  - aria-hidden="true" when closed
+  - class "is-open" when open
+*/
+#modal {
+  display: flex;                    /* Your app mounts/unmounts; keep flex base */
+  position: fixed;
+  z-index: 1000;
+  inset: 0;                         /* shorthand for top/left/right/bottom 0 */
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-backdrop);
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Hide when ARIA says it's hidden (clean with portals) */
+#modal[aria-hidden="true"] {
+  display: none !important;
+}
+
+/* Explicit open class (optional if you prefer class toggling) */
+#modal.is-open {
+  display: flex;
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  color: var(--text);
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 7px 8px rgb(244, 184, 3);
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #aaa;
+  background: transparent;
+  border: none;
+}
+
+.close:hover,
+.close:focus-visible {
+  color: #333;
+}
