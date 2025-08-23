@@ -1,0 +1,58 @@
+[
+  {
+    "year": "1969",
+    "title": "Birth of ARPANET",
+    "description": "The ARPANET, funded by the U.S. Department of Defense, established the first network connection between computers at UCLA and Stanford, laying the foundation for the modern Internet.",
+    "imageURL": "http://personalpages.manchester.ac.uk/staff/m.dodge/cybergeography/atlas/arpanet3.gif",
+    "category": "Networking"
+  },
+  {
+    "year": "1977",
+    "title": "Introduction of the Apple II",
+    "description": "The Apple II, one of the first highly successful mass-produced personal computers, featured color graphics and an open architecture that spurred software development.",
+    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Apple-II.jpg/800px-Apple-II.jpg",
+    "category": "Computing"
+  },
+  {
+    "year": "1981",
+    "title": "Release of the IBM PC",
+    "description": "The IBM Personal Computer (PC) became the industry standard, with its open architecture allowing third-party hardware and software, shaping the PC market for decades.",
+    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/a/a6/IBM_PC-IMG_7271_%28transparent%29.png",
+    "category": "Computing"
+  },
+  {
+    "year": "1984",
+    "title": "Launch of the Macintosh",
+    "description": "Apple's Macintosh introduced a graphical user interface and mouse to the masses, revolutionizing user interaction with computers.",
+    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/7/79/Computer_macintosh_128k%2C_1984_%28all_about_Apple_onlus%29.jpg",
+    "category": "Computing"
+  },
+  {
+    "year": "1991",
+    "title": "Launch of the World Wide Web",
+    "description": "Tim Berners-Lee publicly introduced the World Wide Web, enabling the sharing of information over the Internet through hypertext.",
+    "imageURL": "https://cds.cern.ch/images/CERN-GE-9407011-31/file?size=large",
+    "category": "Internet"
+  },
+  {
+    "year": "1998",
+    "title": "Founding of Google",
+    "description": "Larry Page and Sergey Brin founded Google in a garage, creating a search engine that would dominate the web and expand into numerous technologies.",
+    "imageURL": "https://www.versionmuseum.com/images/websites/google-search/google-search%5E1998%5Esearch-homepage.jpg",
+    "category": "Internet"
+  },
+  {
+    "year": "2004",
+    "title": "Founding of Facebook",
+    "description": "Mark Zuckerberg launched Facebook from his Harvard dorm, which grew into the world's largest social network, changing how people connect online.",
+    "imageURL": "https://www.versionmuseum.com/images/websites/facebook-website/facebook-website%5E2004%5Eharvard-login-homepage.png",
+    "category": "Social Media"
+  },
+  {
+    "year": "2007",
+    "title": "Introduction of the iPhone",
+    "description": "Steve Jobs unveiled the iPhone, combining a phone, iPod, and internet communicator, sparking the smartphone revolution.",
+    "imageURL": "https://images.hindustantimes.com/tech/img/2023/01/09/960x540/iPhone_first_1673287343171_1673287362208_1673287362208.PNG",
+    "category": "Mobile"
+  }
+]
